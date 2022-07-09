@@ -1,7 +1,12 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import {useNavigate} from 'react-router-dom'
 const Login = (props) => {
   const {email , password} = props
+  const navigate = useNavigate()
+
+  const loginClick =() =>{
+    navigate('/todolist')
+  }
   return (
     <div className='Login-page'>
       <div className='Login-box'>
@@ -31,9 +36,10 @@ const Login = (props) => {
               </div>
             </div>
             <div className='row'>
-              <Link to='/dashboard'>
-                <button className='btn btn-primary btn-lock form-control'>Sign In</button>
-              </Link>
+              <div className='col-sm-12 loginbtn'>
+                  <button onClick={loginClick} className='btn btn-primary btn-lock form-control'>Sign In</button>
+              </div>
+              
             </div>
           </div>
         </div>
