@@ -3,6 +3,7 @@ import {v4 as uuidV4} from 'uuid';
 const Form = ({input, setInput, todoList, setTodoList}) => {
     const onInputChange= (event) =>{
         setInput(event.target.value);
+        console.log(event.target.value);
     }
     const onFormSubmit = (event) =>{
         event.preventDefault();
@@ -13,7 +14,7 @@ const Form = ({input, setInput, todoList, setTodoList}) => {
     <form onSubmit={onFormSubmit}>
         <div className='input-group'>
             <input type="text" className='form-control form-control-border' placeholder='Enter Todo....' 
-            value={input}
+            value= {input}
             required
             onChange={onInputChange}
             />
