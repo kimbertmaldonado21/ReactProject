@@ -6,6 +6,7 @@ const Todolist = () => {
 
   const [input, setInput] = useState("");
   const [todoList, setTodoList] = useState([]);
+  const [editTodo, setEditTodo] = useState(null);
   /** ADD TODO LIST */
   
 
@@ -22,12 +23,14 @@ const Todolist = () => {
               setInput={setInput}
               todoList={todoList}
               setTodoList={setTodoList}
+              setEditTodo = {setEditTodo}
               />
             </div>
             <div className='list'>
               <TodoLists 
               todos={todoList}
               setTodoList={setTodoList}
+              setEditTodo ={setEditTodo}
               />
             </div>
           </div>
