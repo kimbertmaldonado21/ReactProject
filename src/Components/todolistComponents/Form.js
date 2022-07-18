@@ -1,23 +1,25 @@
 import React from 'react'
 import {v4 as uuidV4} from 'uuid';
 const Form = ({input, setInput, todoList, setTodoList, editTodo, setEditTodo}) => {
+    // const updateTodo = (title, id, completed) => {
+    //     const newTodo = todoList.map((todo)=>{
+    //         todo.id === id ? { title, id, completed } : todo;
+    //     })
+    //     setTodoList(newTodo);
+    //     setEditTodo("");
+    // };
+
     const onInputChange = (event) =>{
         setInput(event.target.value);
     }
-    const updateTodo = (title, id, completed) => {
-        const newTodo = todoList.map((todo)=>{
-            todo.id === id ? {title, id, completed} : todo;
-        })
-        setTodoList(newTodo);
-        setEditTodo("");
-    }
+    
     const onFormSubmit = (event) =>{
         event.preventDefault();
         if(!editTodo){
             setTodoList([...todoList, {id:uuidV4(), title: input, completed : false}]);
             setInput("");
         }else{
-            updateTodo(input,editTodo.id, editTodo.completed)
+            // updateTodo(input,editTodo.id, editTodo.completed)
         }
         
 

@@ -4,8 +4,9 @@ const TodoLists = ({todos, setTodoList, editTodo, setEditTodo}) => {
 
     const handleComplete = (todo) =>{
         setTodoList(
-            todo.map((item)=>{
+            todos.map((item)=>{
                 if(item.id === todo.id){
+                    alert("completed");
                     return {...item, completed: !item.completed };
                 }
                 return item;
@@ -17,23 +18,28 @@ const TodoLists = ({todos, setTodoList, editTodo, setEditTodo}) => {
         setTodoList(todos.filter((todos)=>todos.id !== id));
     }
     
-    const handleEdit = ({id}) =>{
-        const findTodo = todos.find((todo)=> todo.id === id);
-        setEditTodo(findTodo);
+    // const handleEdit = ({id}) =>{
+    //     const findTodo = todos.find((todo)=> todo.id === id);
+    //     setEditTodo(findTodo);
         
-    }
+    // }
     return (
     <div className='card card-outline card-primary'>
         {todos.map((todos)=>
             <li className='list-item' key={todos.id}>
-                <input type="text" className='form-control-lg form-control-border col-sm-8 d-inline' value={todos.title} onChange={(event)=>event.preventDefault} />
+                <input type="text" 
+                className='form-control-lg form-control-border col-sm-8 d-inline' 
+                value={todos.title} 
+                onChange={(event)=>event.preventDefault} 
+                disabled
+                />
             <div className='col-sm-6 d-inline'>
                 <button className='btn- btn-warning btn-lg' onClick={()=> handleComplete(todos)}>
                     <ion-icon name="checkbox-outline"></ion-icon>
                 </button>
-                <button className='btn- btn-info btn-lg' onClick={()=> handleEdit(todos)}>
+                {/* <button className='btn- btn-info btn-lg'>
                     <ion-icon name="create-outline"></ion-icon>
-                </button>
+                </button> */}
                 <button className='btn-delete btn-danger btn-lg' onClick={()=> handleDelete(todos)}>
                     <ion-icon name="trash-outline"></ion-icon>
                 </button>
